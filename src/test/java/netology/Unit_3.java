@@ -26,21 +26,17 @@ public class Unit_3 {
 //    }
 
     @BeforeAll
-    public static void setupAll() {
-        WebDriverManager.chromedriver().setup();
+    public static void setupAll() { WebDriverManager.chromedriver().setup();}
+
+    @BeforeEach
+    void setUp() {
+        //Загрузить страницу
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
         options.addArguments("window-size=1800x900");
         driver = new ChromeDriver(options);
-
-    }
-
-    @BeforeEach
-    void setUp() {
-        //Загрузить страницу
-        driver = new ChromeDriver();
         driver.get("http://localhost:7777");
 
 
@@ -54,7 +50,7 @@ public class Unit_3 {
     @Test
     void fillingAllFieldsWithValidValues() throws InterruptedException {
         List<WebElement> elements = driver.findElements(By.className("input__control"));
-        elements.get(0).sendKeys("Дмитрий Лютиков");
+        elements.get(0).sendKeys("Лютиков-Цветочкин Дмитрий");
         elements.get(1).sendKeys("+79200011585");
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button__content")).click();
