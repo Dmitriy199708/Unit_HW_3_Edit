@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/u7luxrd1v3wignd7?svg=true)](https://ci.appveyor.com/project/Dmitriy199708/unit-hw-3-edit)
