@@ -27,7 +27,7 @@ public class PositiveTest {
             options.addArguments("--headless");
             options.addArguments("window-size=1800x900");
             driver = new ChromeDriver(options);
-            driver.get("http://localhost:7777");
+            driver.get("http://localhost:9999");
         }
         @AfterEach
         void tearDown() {
