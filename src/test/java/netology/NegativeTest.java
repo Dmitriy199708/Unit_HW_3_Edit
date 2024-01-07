@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -52,7 +53,7 @@ public class NegativeTest {
     @Test
     void submittingFormWithoutPhoneNumber() throws InterruptedException { //отправка формы без номера телефона
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Иванов-Иванович Иван");
-        driver.findElement(By.cssSelector("[data-test-id='agreement'] .checkbox__control"));
+        driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
         driver.findElement(By.cssSelector("button.button")).click();
         var actualElement = driver.findElement(By.cssSelector("[data-test-id='phone'].input_invalid .input__sub"));
         var actualText = actualElement.getText().trim();
@@ -80,7 +81,7 @@ public class NegativeTest {
     void submittingFormWithoutinvalidLastName() throws InterruptedException { //отправка формы с невалидной фамилией
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Gfffkk");
         driver.findElement(By.cssSelector("[data-test-id='phone'] .input__control")).sendKeys("+79200025741");
-        driver.findElement(By.cssSelector("[data-test-id='agreement'] .checkbox__control"));
+        driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
         driver.findElement(By.cssSelector("button.button")).click();
         var actualElement = driver.findElement(By.cssSelector("[data-test-id='name'].input_invalid .input__sub"));
         var actualText = actualElement.getText().trim();
@@ -93,7 +94,7 @@ public class NegativeTest {
     void submittingFormWithoutLongNumber() throws InterruptedException { //отправка формы с длинным номером
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Иванов-Иванович Иван");
         driver.findElement(By.cssSelector("[data-test-id='phone'] .input__control")).sendKeys("+792000257411");
-        driver.findElement(By.cssSelector("[data-test-id='agreement'] .checkbox__control"));
+        driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
         driver.findElement(By.cssSelector("button.button")).click();
         var actualElement = driver.findElement(By.cssSelector("[data-test-id='phone'].input_invalid .input__sub"));
         var actualText = actualElement.getText().trim();
@@ -105,7 +106,7 @@ public class NegativeTest {
     void submittingFormWithoutInvalideNumber() throws InterruptedException { //отправка формы с невалидным номером
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Иванов-Иванович Иван");
         driver.findElement(By.cssSelector("[data-test-id='phone'] .input__control")).sendKeys("DDff");
-        driver.findElement(By.cssSelector("[data-test-id='agreement'] .checkbox__control"));
+        driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
         driver.findElement(By.cssSelector("button.button")).click();
         var actualElement = driver.findElement(By.cssSelector("[data-test-id='phone'].input_invalid .input__sub"));
         var actualText = actualElement.getText().trim();
